@@ -68,7 +68,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter  {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests().antMatchers(HttpMethod.POST).hasAnyRole("ADMIN","MANAGER")
-				.antMatchers(HttpMethod.PUT).hasAnyRole("ADMIN","MANAGER")
+				.antMatchers(HttpMethod.PUT).hasAnyRole("ADMIN","MANAGER","USER")
 				.antMatchers(HttpMethod.DELETE).hasAnyRole("MANAGER")
 				.antMatchers(HttpMethod.GET,"/admin/getAllUsers").hasAnyRole("USER","ADMIN","MANAGER");
 		http.cors().disable();
